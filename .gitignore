@@ -1,0 +1,13 @@
+# OS junk
+Thumbs.db
+ehthumbs.db
+.DS_Store
+
+# Editors
+.vscode/
+*.swp
+
+# Build output (only if you add tooling later)
+node_modules/
+dist/
+.cache/
