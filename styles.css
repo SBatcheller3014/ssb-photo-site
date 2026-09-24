@@ -1,0 +1,291 @@
+style.css
+
+/* Base Styles & Dark Theme Tokens */
+:root {
+  --bg-color: #0f0f11;
+  --card-bg: #18181c;
+  --text-main: #f0f0f2;
+  --text-muted: #a0a0ab;
+  --accent-color: #e2b714;
+  --border-color: #27272a;
+  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: var(--font-family);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header & Navigation */
+header {
+  padding: 2rem 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.logo {
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-main);
+  text-decoration: none;
+}
+
+nav a {
+  color: var(--text-muted);
+  text-decoration: none;
+  margin-left: 2rem;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+}
+
+nav a:hover,
+nav a.active {
+  color: var(--text-main);
+}
+
+/* Container */
+main {
+  flex: 1;
+  max-width: 1200px;
+  width: 90%;
+  margin: 3rem auto;
+}
+
+/* Gallery Styles (Masonry / Varied Grid) */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-auto-rows: 250px;
+  grid-auto-flow: dense;
+  gap: 1.5rem;
+}
+
+/* Grid Spans for various image sizes */
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+  background-color: var(--card-bg);
+}
+
+.gallery-item.tall { grid-row: span 2; }
+.gallery-item.wide { grid-column: span 2; }
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+/* Template Style Captions */
+.caption {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 60%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1.5rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .caption {
+  opacity: 1;
+}
+
+.caption-title {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.caption-meta {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.75);
+  margin-top: 0.25rem;
+  font-family: monospace;
+}
+
+/* About Page */
+.about-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.about-portrait {
+  width: 100%;
+  border-radius: 4px;
+  filter: grayscale(100%);
+}
+
+.about-text h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 300;
+}
+
+.about-text p {
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+/* Footer & Social Icons */
+footer {
+  padding: 2rem 5%;
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.nikon-badge {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.nikon-badge img {
+  display: block;
+  margin: 4px auto 0;
+  width: 20px;
+  height: 20px;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.secondary-footer {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+  }
+
+  .sigma-logo {
+  width: 16px !important;
+  height: 16px !important;
+  flex-shrink: 0;
+  flex-grow: 0;       /* Prevent it from growing */
+  flex-basis: 16px;   /* Set the base size explicitly */
+  display: block;     /* Removes inline alignment quirks */
+  object-fit: contain; /* Ensures aspect ratio is kept */
+}
+
+/* Contact page footer */
+.contact-footer {
+  background-color: #111111;
+  padding: 28px 20px;
+}
+
+/* Centers the phone and email buttons */
+.contact-footer__inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Circular icon links */
+.contact-footer__item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  color: #ffffff;
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+  text-decoration: none;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+/* SVG icons inherit their color from the link */
+.contact-footer__icon {
+  width: 22px;
+  height: 22px;
+  fill: currentColor;
+}
+
+/* Mouse hover and keyboard focus */
+.contact-footer__item:hover,
+.contact-footer__item:focus-visible {
+  color: #111111;
+  background-color: #ffffff;
+  border-color: #ffffff;
+  transform: translateY(-3px);
+  outline: none;
+}
+
+/* Clear keyboard navigation indicator */
+.contact-footer__item:focus-visible {
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.45);
+}
+
+/* Hides text visually while keeping it available to screen readers */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Slightly smaller circular buttons on very narrow screens */
+@media (max-width: 360px) {
+  .contact-footer__inner {
+    gap: 12px;
+  }
+
+  .contact-footer__item {
+    width: 44px;
+    height: 44px;
+  }
+
+  .contact-footer__icon {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .about-container { grid-template-columns: 1fr; }
+  .gallery-item.wide { grid-column: span 1; }
+}
