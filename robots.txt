@@ -46,4 +46,4 @@ User-agent: Diffbot
 Disallow: /
 
 # Point to sitemap
-Sitemap: https://ssb-photo-site.pages.dev/sitemap.xml
+Sitemap: https://sbatchellerphotography.us/sitemap.xml
