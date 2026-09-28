@@ -1,0 +1,7 @@
+# Security contact information for this website.
+# Please use this address only to report suspected security vulnerabilities.
+
+Canonical: https://sbatchellerphotography.us/.well-known/security.txt
+Contact: mailto:sbatchellerphotography@gmail.com
+Expires: 2027-08-28T00:00:00.000Z
+Preferred-Languages: en
